@@ -1,0 +1,256 @@
+.header {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: rgba(0, 0, 0, 0.4); /* lighter header */
+  color: #f3f3f3;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+
+
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+
+    a {
+      color: #f3f3f3;
+      text-decoration: none;
+      font-weight: 400; /* lighter */
+      font-size: 1rem;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #ffcc00;
+      }
+    }
+  }
+
+  .auth-buttons {
+    display: flex;
+    gap: 1rem;
+
+    .btn {
+      background: transparent;
+      border: 1px solid #f3f3f3;
+      color: #f3f3f3;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #ffcc00;
+        color: #000;
+        border-color: #ffcc00;
+      }
+
+      &.signup {
+        background: #ffcc00;
+        color: #000;
+        border: none;
+
+        &:hover {
+          background: #ffc107;
+        }
+      }
+    }
+  }
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%; /* not 100vw */
+  box-sizing: border-box;
+  background: url("../../../assets/tajmahal-bg.jpg") center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #f8f8f8; /* softer than pure white */
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3); /* lighter overlay so image visible */
+  }
+
+  .hero-content {
+    
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 500; /* softer weight */
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 300; /* thin */
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      color: #e8e8e8; /* slightly grayish */
+    }
+
+    .btn.primary {
+      background: rgba(255, 204, 0, 0.9);
+      color: black;
+      border: none;
+      padding: 0.9rem 2.2rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+
+      &:hover {
+        background: rgba(255, 204, 0, 1);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+/* Placeholder Sections */
+.sections {
+  padding: 5rem 3rem;
+  text-align: center;
+  background: #f9f9f9;
+
+  h2 {
+    margin-top: 3rem;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  .placeholder-box {
+    margin: 1.5rem auto;
+    padding: 2rem;
+    border: 2px dashed #ccc;
+    max-width: 800px;
+    color: #666;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header .nav-links {
+    display: none;
+  }
+
+  .hero .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero .hero-content p {
+    font-size: 1rem;
+  }
+}
+/* Planner Section */
+/* Planner (Red Fort) Section – clean version */
+.planner-section {
+  position: relative;
+  height: 100vh; /* full screen */
+  background: url("../../../assets/redfort-bg.jpg") center center / cover no-repeat; /* no fixed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #f8f8f8;
+
+  /* blurred gradient blending into Taj Mahal hero above */
+  &::before {
+    content: "";
+    position: absolute;
+    top: -80px; /* overlaps previous section */
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(
+      rgba(0,0,0,0.4) 0%,
+      rgba(0,0,0,0) 100%
+    );
+    filter: blur(8px);
+    z-index: 1;
+  }
+
+  .planner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3); /* subtle overlay */
+  }
+
+  .planner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    width: 100%;
+    padding: 2rem;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    .planner-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+
+      input {
+        flex: 1 1 150px;
+        padding: 0.8rem;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+      }
+
+      .btn.primary {
+        background: rgba(255, 204, 0, 0.9);
+        color: black;
+        border: none;
+        padding: 0.9rem 2rem;
+        font-weight: 500;
+        font-size: 1.1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 6px rgba(73, 63, 63, 0.2);
+
+        &:hover {
+          background: rgba(255, 204, 0, 1);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
